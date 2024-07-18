@@ -1,0 +1,23 @@
+.navbar-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.navbar-center .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Ajoutez un espacement si nécessaire */
+}
+.navbar-brand {
+    margin: 0 1rem; /* Ajustez la marge autour du logo si nécessaire */
+}
+
+a {
+    text-decoration: none;
+    color: #143D59;
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+}

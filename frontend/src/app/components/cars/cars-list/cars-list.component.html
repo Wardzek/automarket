@@ -1,0 +1,41 @@
+<section class="cars-list">
+  <div class="card mt-5">
+    <h2 class="card-header">AJOUT D'UNE NOUVELLE ANNONCE</h2>
+    <div class="card-body">
+  
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn" (click)="navigateToCreate()">
+          <i class="fa fa-plus"></i> Créer une nouvelle annonce
+        </button>
+      </div>
+  
+      <table class="table table-bordered table-striped mt-4">
+        <thead>
+          <tr>
+            <th width="80px">No</th>
+            <th>Titre</th>
+            <th width="250px">Action</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let car of cars; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ car.title }}</td>
+            <td>
+              <button class="btn me-2 btn-sm" (click)="navigateToEdit(car.id)">
+                <i class="fa-solid fa-pen-to-square"></i> Modifier
+              </button>
+              <button class="btn btn-sm" (click)="deleteCar(car.id)">
+                <i class="fa-solid fa-trash"></i> Supprimer
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="cars.length === 0">
+            <td colspan="3">Il n'y a pas de données.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

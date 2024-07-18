@@ -1,0 +1,44 @@
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+
+    img {
+        width: 200px;
+        margin-top: -100px;
+    }
+
+    input {
+        border: 1px solid #143D59;
+        border-radius: 25px;
+        margin-bottom: 15px;
+    }
+
+    input::placeholder {
+        text-align: center;
+    }
+
+    button, a {
+        border: 1px solid #143D59;
+        border-radius: 25px;
+        color: white;
+        background: #143D59;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+    
+    .button-container .btn {
+        width: 48%;
+        border: 1px solid #143D59;
+        border-radius: 25px;
+        color: white;
+        background: #143D59;
+        text-align: center;
+        text-decoration: none;
+    }
+}

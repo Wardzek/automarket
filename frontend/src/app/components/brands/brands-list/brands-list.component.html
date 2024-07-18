@@ -1,0 +1,26 @@
+<section class="brand-list">
+  <div class="card mt-5">
+    <h2 class="card-header">Liste des marques</h2>
+    <div class="card-body">
+      <a class="btn" routerLink="/create-brand">Créer une nouvelle marque</a>
+      <table class="table table-bordered table-striped mt-4">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nom</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let brand of brands; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ brand.name }}</td>
+            <td>
+              <button class="btn btn-sm" (click)="deleteBrand(brand.id)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+<div class="card mt-5">
+    <h2 class="card-header">AJOUT D'UNE NOUVELLE ANNONCE</h2>
+    <div class="card-body">
+    
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary btn-sm" (click)="goBack()"><i class="fa fa-arrow-left"></i> Retour</button>
+      </div>
+    
+      <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+              <label for="inputTitle" class="form-label"><strong>Titre:</strong></label>
+              <input type="text" formControlName="title" class="form-control" id="inputTitle" placeholder="Titre">
+          </div>
+          <div class="mb-3">
+            <label for="inputYear" class="form-label"><strong>Année:</strong></label>
+            <input type="text" formControlName="year" class="form-control" id="inputYear" placeholder="Année">
+        </div>
+        <div class="mb-3">
+            <label for="inputPrice" class="form-label"><strong>Prix:</strong></label>
+            <input type="text" formControlName="price" class="form-control" id="inputPrice" placeholder="Prix">
+        </div>
+        <div class="mb-3">
+            <label for="inputFuel" class="form-label"><strong>Carburant:</strong></label>
+            <input type="text" formControlName="fuel" class="form-control" id="inputFuel" placeholder="Carburant">
+        </div>
+        <div class="mb-3">
+            <label for="inputType" class="form-label"><strong>Type:</strong></label>
+            <input type="text" formControlName="type" class="form-control" id="inputType" placeholder="Type">
+        </div>
+        <div class="mb-3">
+            <label for="inputDescription" class="form-label"><strong>Description:</strong></label>
+            <input type="text" formControlName="description" class="form-control" id="inputDescritpion" placeholder="Description">
+        </div>
+        <div class="mb-3">
+            <label for="brandSelect" class="form-label"><strong>Marque:</strong></label>
+            <select formControlName="brand_id" id="brandSelect" class="form-control">
+                <option value="">Choisir une marque</option>
+                <option *ngFor="let brand of brands" [value]="brand.id">{{ brand.name }}</option>
+            </select>
+        </div>
+  
+        <button type="submit" class="btn btn-success" [disabled]="!carForm.valid"><i class="fa-solid fa-floppy-disk"></i> Ajouter</button>
+      </form>
+    </div>
+  </div>
+  

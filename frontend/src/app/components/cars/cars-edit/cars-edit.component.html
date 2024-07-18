@@ -1,0 +1,16 @@
+<div class="card mt-5">
+    <h2 class="card-header">Modifier l'annonce</h2>
+    <div class="card-body">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary btn-sm" (click)="router.navigate(['/cars'])"><i class="fa fa-arrow-left"></i> Back</button>
+      </div>
+      <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3" *ngFor="let field of ['title', 'year', 'price', 'type', 'fuel', 'description']; let i = index">
+            <label [for]="field" class="form-label"><strong>{{ fieldLabels[i] }}:</strong></label>
+            <input type="text" [formControlName]="field" [id]="field" class="form-control" [placeholder]="fieldLabels[i]">
+          </div>          
+        <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Update</button>
+      </form>
+    </div>
+  </div>
+  

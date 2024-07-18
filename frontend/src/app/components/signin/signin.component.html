@@ -1,0 +1,31 @@
+<div class="login-wrapper">
+    <div class="login-content">
+        <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <img class="h3 text-center" src="assets/images/logo.svg" alt="logo"/>
+
+            <!-- Errors -->
+            <div *ngIf="errors?.email" class="alert alert-danger mt-3">
+                {{ errors?.email }}
+            </div>
+            <div *ngIf="errors?.password" class="alert alert-danger mt-3">
+                {{ errors?.password }}
+            </div>
+            <div *ngIf="errors?.error" class="alert alert-danger mt-3">
+                {{ errors?.error }}
+            </div>
+
+            <!-- Login -->
+            <h4 class="h3 mb-3 font-weight-normal text-center mt-5 mb-5">Connexion</h4>
+            <div class="form-group">
+                <input type="email" class="form-control" formControlName="email" placeholder="E Mail">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" formControlName="password" placeholder="Mot de passe">
+            </div>
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Connexion</button>
+                <a href="/register" class="btn btn-secondary">Inscription</a>
+            </div>
+        </form>
+    </div>
+</div>

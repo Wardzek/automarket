@@ -1,0 +1,31 @@
+<div class="card mt-5">
+    <h2 class="card-header">AJOUT D'UNE NOUVELLE MARQUE</h2>
+    <div class="card-body">
+    
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-primary btn-sm" (click)="goBack()"><i class="fa fa-arrow-left"></i> Retour</button>
+      </div>
+    
+      <form (ngSubmit)="onSubmit()" #brandForm="ngForm">
+    
+          <div class="mb-3">
+              <label for="inputName" class="form-label"><strong>Nom:</strong></label>
+              <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  [(ngModel)]="brand.name"
+                  #name="ngModel"
+                  id="inputName"
+                  placeholder="Nom"
+                  required>
+              <div *ngIf="name.invalid && name.touched" class="form-text text-danger">
+                  Le nom est requis.
+              </div>
+          </div>
+    
+          <button type="submit" class="btn btn-success" [disabled]="!brandForm.valid"><i class="fa-solid fa-floppy-disk"></i> Ajouter</button>
+      </form>
+    </div>
+  </div>
+  

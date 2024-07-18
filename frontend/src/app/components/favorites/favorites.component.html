@@ -1,0 +1,12 @@
+<section class="favoris">
+  <h3>Mes favoris :</h3>
+  <div *ngFor="let favorite of favorites" class="card" style="width: 18rem;">
+      <img [src]="" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ favorite.car.title }}</h5>
+        <p class="card-text">klm | {{ favorite.car.fuel }} | {{ favorite.car.type }}</p>
+        <p class="price">{{ favorite.car.price }} €</p>
+        <button (click)="removeFavorite(favorite.car.id)">Remove</button>
+      </div>
+    </div>
+</section>
