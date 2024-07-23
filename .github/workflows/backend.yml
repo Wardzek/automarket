@@ -20,7 +20,7 @@ jobs:
       - name: Generate application key
         run: php backend/artisan key:generate
       - name: Run tests
-        run: ./vendor/bin/phpunit
+        run: php backend/vendor/bin/phpunit --configuration backend/phpunit.xml
   docker:
     needs: test
     if: github.ref == 'refs/heads/main'

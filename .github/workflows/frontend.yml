@@ -2,11 +2,10 @@ name: Frontend
 
 on:
   push:
-      paths:
+    paths:
       - "frontend/**"
 
 jobs:
-  test:
   test:
     runs-on: ubuntu-latest
     steps:
