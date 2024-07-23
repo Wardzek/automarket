@@ -1,26 +1,19 @@
-name: Backend
+name: Frontend
 
 on:
   push:
+      paths:
+      - "frontend/**"
 
 jobs:
+  test:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.2"
-      - name: Install Composer dependencies
-        run: cd backend && composer install --prefer-dist --no-progress --no-suggest
-      - name: Copy .env file
-        run: cp backend/.env.example backend/.env
-      - name: Generate application key
-        run: php backend/artisan key:generate
-      - name: Run tests
-        run: php backend/vendor/bin/phpunit
+      - name: Goto frontend and run tests
+        run: cd frontend && npm i && npm test
   docker:
     needs: test
     if: github.ref == 'refs/heads/main'
@@ -40,6 +33,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./backend
+          context: ./frontend
           push: true
-          tags: ${{ secrets.DOCKERHUB_REPO_BACKEND }}:latest, ${{ secrets.DOCKERHUB_REPO_BACKEND }}:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_REPO_FRONTEND }}:latest, ${{ secrets.DOCKERHUB_REPO_FRONTEND }}:${{ github.sha }}
